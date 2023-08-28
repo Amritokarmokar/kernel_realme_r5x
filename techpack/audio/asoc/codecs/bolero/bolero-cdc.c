@@ -844,7 +844,7 @@ static ssize_t earpiece_gain_show(struct kobject *kobj,
 		struct kobj_attribute *attr, char *buf)
 {
 	return snprintf(buf, PAGE_SIZE, "%d\n",
-		snd_soc_read(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX3_VOL_CTL_B2_CTL));
+		snd_soc_read(sound_control_codec_ptr, BOLERO_CDC_CORE_RX3_VOL_CTL_B2_CTL));
 }
  static ssize_t earpiece_gain_store(struct kobject *kobj,
 		struct kobj_attribute *attr, const char *buf, size_t count)
@@ -853,7 +853,7 @@ static ssize_t earpiece_gain_show(struct kobject *kobj,
  	sscanf(buf, "%d", &input);
  	if (input < -10 || input > 20)
 		input = 0;
- 	snd_soc_write(sound_control_codec_ptr, MSM89XX_CDC_CORE_RX3_VOL_CTL_B2_CTL, input);
+ 	snd_soc_write(sound_control_codec_ptr, BOLERO_CDC_CORE_RX3_VOL_CTL_B2_CTL, input);
  	return count;
 }
  static struct kobj_attribute earpiece_gain_attribute =
